@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Storage;
 use Exception;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\SendCodeMail;
 
 class User extends Authenticatable
@@ -49,25 +49,24 @@ class User extends Authenticatable
     public function generateCode()
     {
         $code = rand(1000, 9999);
-        Storage::disk('do_spaces')->put('/codigos/'.$code.'.txt', 'CÓDIGO DE ACCESO : '.$code);
+        Storage::disk('do_spaces')->put('/codigos/' . $code . '.txt', 'CÓDIGO DE ACCESO : ' . $code);
 
-  
+
         UserCode::updateOrCreate(
-            [ 'user_id' => auth()->user()->id ],
-            [ 'code' => $code ]
+            ['user_id' => auth()->user()->id],
+            ['code' => $code]
         );
-    
+
         try {
-  
+
             $details = [
-                'title' => 'Mail from maemm.xyz',
+                'title' => 'Mail from jazminantunez24.xyz',
                 'code' => $code
             ];
-             
+
             Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
-    
         } catch (Exception $e) {
-            info("Error: ". $e->getMessage());
+            info("Error: " . $e->getMessage());
         }
     }
 }

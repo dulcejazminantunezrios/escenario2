@@ -17,7 +17,7 @@
     <!-- Styles -->
     <style type="text/css">
     .backgraund{
-        background-color: #c2e9fb ;
+        background-color: #ffffff ;
 
     }
     .card{
@@ -30,14 +30,26 @@
               transform: scale(1.09) !important;
     }
     .back{
-        background-color: #4158D0;
-        background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-
+        background-color: #eaecee;
+        background-image: url(https://media.istockphoto.com/vectors/seamless-pattern-of-overlapping-circle-blue-aqua-color-background-vector-id1172737884?k=20&m=1172737884&s=170667a&w=0&h=3RO9l9bZkgrPH8NMKCDKd7wmm8aHgZFprARB6fgVVzo=);
+        opacity: 100%;
     }
     .color{
-        background-color:#424242;
+        background-color:#2868a3;
     }
-
+    .titulo{
+        background-color: rgb(51, 54, 221);
+        opacity: 80%;
+    }
+    .barra{
+        background-color: rgb(43, 43, 44);
+        opacity: 80%;
+    }
+    .usuario{
+        background-color: rgb(51, 54, 221); 
+        opacity: 80%;  
+        text-align: center;
+    }
     </style>
   
   
@@ -48,10 +60,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark back shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand titulo" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler barra" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -78,7 +90,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle usuario" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
